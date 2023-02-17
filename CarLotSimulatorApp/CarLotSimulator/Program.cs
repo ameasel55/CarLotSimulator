@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
@@ -19,36 +20,44 @@ namespace CarLotSimulator
             Car myCar = new Car();
             myCar.EngineNoise = "Extremely Noisy";
             myCar.HornNoise = "Has a weak little beep beep with asthma";
-
-            myCarLot.ListOfCars.Add(myCar);
-           
-            Car myCar2 = new Car();
-            myCar2.EngineNoise = "Sounds like a cement grinder";
-            myCar2.HornNoise = "Has a horn that plays that song like Rodney Dangerfield's horn in Caddyshack";
-
-            myCarLot.ListOfCars.Add(myCar2);
-
-
-            //Now that the Car class is created we can instanciate 3 new cars
-            //Set the properties for each of the cars
-            //Call each of the methods for each car
-
             myCar.Make = "Mercury";
             myCar.Model = "Grand Marquis";
             myCar.Year = 1994;
             myCar.IsDrivable = true;
+
+           
+           
+          
+
+          
+            
+            //Now that the Car class is created we can instanciate 3 new cars
+            //Set the properties for each of the cars
+            //Call each of the methods for each car
+
+         
 
             Console.WriteLine($"Make of the car: {myCar.Make}");
             Console.WriteLine($"Model of the car: {myCar.Model}");
             Console.WriteLine($"Year of the car: {myCar.Year}");
             Console.WriteLine($"Engine Noise of the car: {myCar.EngineNoise}");
             Console.WriteLine($"Horn Noise of the car: {myCar.HornNoise}");
-            Console.WriteLine($"True of false; this car is drivable: {myCar.IsDrivable}");
+            Console.WriteLine($"True or false; this car is drivable: {myCar.IsDrivable}");
+
+            Console.WriteLine();
+            Console.WriteLine($"Amount of cars created: {CarLot.AmountOfCarsCreated}");
 
             Console.WriteLine();
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine();
+            //myCarLot.ListOfCars.Add(myCar);
 
+            Car myCar2 = new Car();
+
+            
+
+            myCar2.EngineNoise = "Sounds like a cement grinder";
+            myCar2.HornNoise = "Has a horn that plays that song like Rodney Dangerfield's horn in Caddyshack";
             myCar2.Make = "Chevy";
             myCar2.Model = "El Camino";
             myCar2.Year = 1983;
@@ -61,8 +70,9 @@ namespace CarLotSimulator
             Console.WriteLine($"Horn Noise of the car: {myCar2.HornNoise}");
             Console.WriteLine($"True or false; this car is drivable: {myCar2.IsDrivable}");
 
-        
-
+            Console.WriteLine();
+            Console.WriteLine($"Amount of cars created: {CarLot.AmountOfCarsCreated}");
+            //myCarLot.ListOfCars.Add(myCar2);
 
             //*************BONUS*************//
 
@@ -90,7 +100,10 @@ namespace CarLotSimulator
             Console.WriteLine($"Horn noise of the car: {pontiac.HornNoise}");
             Console.WriteLine($"True or false; this car is drivable: {pontiac.IsDrivable}");
 
-            myCarLot.ListOfCars.Add(pontiac);
+            Console.WriteLine();
+            Console.WriteLine($"Amount of cars created: {CarLot.AmountOfCarsCreated}");
+
+           // myCarLot.ListOfCars.Add(pontiac);
 
             var ford = new Car("Ford", "Aspire", 1993, "Sounds like putting silverware in a blender",
                 "sounds like a sinking tugboat", false);
@@ -106,15 +119,25 @@ namespace CarLotSimulator
             Console.WriteLine($"Horn noise of the car: {ford.HornNoise}");
             Console.WriteLine($"True or false; this car is drivable: {ford.IsDrivable}");
 
-            myCarLot.ListOfCars.Add(ford);
 
             Console.WriteLine();
-            foreach (var car in myCarLot.ListOfCars)
+            Console.WriteLine($"Amount of cars created: {CarLot.AmountOfCarsCreated}");
+
+            //myCarLot.ListOfCars.Add(ford);
+
+            Console.WriteLine();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine();
+
+            CarLot.ListOfCars = new List<Car>() { myCar, myCar2, pontiac, ford };
+            foreach (var car in CarLot.ListOfCars)
             {
                 Console.WriteLine(car.Year);
 
                 Console.WriteLine(car.Make);
                 Console.WriteLine(car.Model);
+                Console.WriteLine();
+                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~");
                 Console.WriteLine();
             }
 
